@@ -1,0 +1,41 @@
+
+Options +FollowSymLinks
+
+
+# Setting Directory Index for Website
+DirectoryIndex index.html index.php about.php
+
+<IfModule mod_rewrite.c>
+  Header set X-XSS-Protection "1; mode=block"
+    RewriteCond %{QUERY_STRING} (\<|%3C).*script.*(\>|%3E) [NC,OR]
+    RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
+    RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2})
+    RewriteRule .* index.php [F,L]
+</IfModule>
+
+<Files .htaccess>
+Order allow,deny
+Deny from all
+</Files>
+
+# Prevent website Directory Listing
+Options -Indexes
+
+# Redirecting a non-www URL to a www URL.
+RewriteEngine ON
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+ErrorDocument 404 "<html><head><title>404 Page not found</title></head><body><p>The page you request is not present. Check the URL you have typed</p></body></html>"
+ErrorDocument 500 "<html><head><title>404 Page not found</title></head><body><p>The page you request is not present. Check the URL you have typed</p></body></html>"
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php71” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php71 .php .php7 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit
