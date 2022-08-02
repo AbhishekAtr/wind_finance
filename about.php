@@ -45,7 +45,7 @@ include 'include/css-url.php';
                     <li><a class="nav-link scrollto active" href="about.php">About</a></li>
                     <li><a class="nav-link scrollto" href="service.php">Services</a></li>
                     <li><a class="nav-link scrollto " href="contact.php">Contact</a></li>
-                    <li><a class="nav-link scrollto " href="blog.php">Contact</a></li>
+                    <li><a class="nav-link scrollto " href="blog.php">Blog</a></li>
                     <!-- <li><a class="nav-link scrollto" href="help">Help</a></li> -->
                 </ul>
             </nav>

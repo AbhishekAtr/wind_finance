@@ -47,7 +47,47 @@ include 'include/header.php';
         }
         ?>
 </section>
-<script src="//code.tidio.co/xlnzklafmsgeufhjx8h2o4ktgn4jjjkm.js" async></script>
+<section>
+    <div class="container">
+        <h4 class="font-weight-bold mb-4">Add your comments</h4>
+        <div class="row">
+            <div class="col-md-6">
+                <form action="#" method="POST" class="comment_form" id="comment_form">
+                    <input type="hidden" name="id" id="id" value="<?php echo $row['id']; ?>">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Enter your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="comment">Comment</label>
+                        <textarea id="comment" class="form-control" name="comment" placeholder="Enter your Comment" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button name="submit" id="submit" class="btn-style btn btn-primary rounded-0 m-auto btn_submit">Post Comment</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<?php 
+include 'admin/include/db_connect.php';
+if (isset($_POST['submit'])) { // Check press or not Post Comment Button
+	$name = $_POST['name']; // Get Name from form
+	$email = $_POST['email']; // Get Email from form
+	$comment = $_POST['comment']; // Get Comment from form
+    $id = $_POST['id'];
+    $sql ="INSERT INTO `comments`( `blog_id`, `name`, `email`, `comment`, `date`) 
+    VALUES ('$id','$name','$email','$comment',current_timestamp())";
+	$result = mysqli_query($conn, $sql);
+	if ($result) {
+	}
+}
+?>
 <?php
 include 'include/footer.php';
 include 'include/js-url.php';

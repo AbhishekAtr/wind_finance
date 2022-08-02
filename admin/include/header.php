@@ -59,6 +59,12 @@
                     <span class="nav-text text-dark">Trending/Latest Blog</span>
                 </a>
             </li>
+            <li id="side-style" class="text-dark">
+                <a class="has-arrow ai-icon" href="comments.php" aria-expanded="false">
+                    <i class="fa fa-diamond text-dark" aria-hidden="true"></i>
+                    <span class="nav-text text-dark">Comments</span>
+                </a>
+            </li>
              <!--<li class="nav-label first text-white">Product-Categories</li>
             <li id="side-style" class="text-white">
                 <a class="has-arrow ai-icon" href="categories.php" aria-expanded="false">

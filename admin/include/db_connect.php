@@ -1,11 +1,11 @@
 <?php
    
    $servername = "localhost"; 
-   $username = "monstrka_wind"; 
-   $password = "PthhK#43%#KN";
+   $username = "root"; 
+   $password = "";
   
-   $database = "monstrka_wind";
-   $url = "https://windfinance.in/admin/";
+   $database = "wind";
+   $url = "http://localhost/wind_finance/admin/";
    
      // Create a connection 
      $conn = mysqli_connect($servername, $username, $password, $database);
